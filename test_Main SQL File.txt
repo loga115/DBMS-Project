@@ -1,0 +1,15 @@
+-- Test the VIEWLOTPL procedure
+
+-- Test case 1: Valid license plate
+DECLARE @LicensePlate VARCHAR(20) = 'KL34A5006';
+
+-- Verify that the procedure returns the correct parking slot and area
+SELECT * FROM ParkingLot
+WHERE LicensePlate = @LicensePlate;
+
+-- Test case 2: Invalid license plate
+SET @LicensePlate = 'ABC123';
+
+-- Verify that the procedure returns no rows for an invalid license plate
+SELECT * FROM ParkingLot
+WHERE LicensePlate = @LicensePlate;
